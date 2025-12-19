@@ -1,0 +1,8 @@
+curl -X POST http://localhost:5000/analyzereview \
+  -H "Content-Type: application/json" \
+  -d '{"review": "Fantastic services"}'
+
+{
+  "sentiment": "positive",
+  "review": "Fantastic services"
+}

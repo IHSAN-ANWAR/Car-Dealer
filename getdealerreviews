@@ -1,0 +1,19 @@
+curl -X GET http://localhost:8000/djangoapp/reviews/dealer/1/
+
+{
+  "status": 200,
+  "reviews": [
+    {
+      "id": 1,
+      "name": "John Smith",
+      "dealership": 1,
+      "review": "Fantastic service! The staff was very professional and helpful.",
+      "purchase": true,
+      "purchase_date": "2023-10-15",
+      "car_make": "Toyota",
+      "car_model": "Camry",
+      "car_year": 2023,
+      "sentiment": "positive"
+    }
+  ]
+}

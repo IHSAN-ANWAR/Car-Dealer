@@ -1,0 +1,17 @@
+curl -X GET http://localhost:8000/djangoapp/dealer/1/
+
+{
+  "status": 200,
+  "dealer": {
+    "id": 1,
+    "city": "New York",
+    "state": "New York",
+    "st": "NY",
+    "address": "123 Broadway Ave",
+    "zip": "10001",
+    "lat": 40.7128,
+    "long": -74.006,
+    "short_name": "NYC Motors",
+    "full_name": "New York City Motors"
+  }
+}

@@ -1,0 +1,89 @@
+.review-container {
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    padding: 2rem 0;
+}
+
+.review-container .card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.review-container .card-header {
+    border-bottom: none;
+    padding: 2rem;
+}
+
+.review-container .card-body {
+    padding: 2rem;
+}
+
+.review-container .form-control,
+.review-container .form-select {
+    border-radius: 8px;
+    padding: 0.75rem;
+    border: 1px solid #dee2e6;
+    transition: all 0.3s ease;
+}
+
+.review-container .form-control:focus,
+.review-container .form-select:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+    transform: translateY(-1px);
+}
+
+.review-container textarea.form-control {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.review-container .form-check-input {
+    margin-top: 0.25rem;
+}
+
+.review-container .form-check-label {
+    font-weight: 500;
+    color: #495057;
+}
+
+.purchase-details {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    border-left: 4px solid #0d6efd;
+}
+
+.review-container .btn {
+    border-radius: 10px;
+    padding: 0.75rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.review-container .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.review-container .alert {
+    border-radius: 10px;
+    border: none;
+}
+
+@media (max-width: 768px) {
+    .review-container {
+        padding: 1rem 0;
+    }
+    
+    .review-container .card-header,
+    .review-container .card-body {
+        padding: 1.5rem;
+    }
+    
+    .purchase-details {
+        padding: 1rem;
+    }
+}

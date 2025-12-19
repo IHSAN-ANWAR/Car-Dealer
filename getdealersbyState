@@ -1,0 +1,19 @@
+curl -X GET http://localhost:8000/djangoapp/get_dealers/KS/
+
+{
+  "status": 200,
+  "dealers": [
+    {
+      "id": 5,
+      "city": "Wichita",
+      "state": "Kansas",
+      "st": "KS",
+      "address": "555 Douglas Ave",
+      "zip": "67202",
+      "lat": 37.6872,
+      "long": -97.3301,
+      "short_name": "Wichita Auto",
+      "full_name": "Wichita Auto Sales"
+    }
+  ]
+}

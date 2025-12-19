@@ -1,0 +1,14 @@
+System check identified no issues (0 silenced).
+December 20, 2024 - 10:30:15
+Django version 4.2.7, using settings 'djangoproj.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+[20/Dec/2024 10:30:20] "GET /djangoapp/get_dealers/ HTTP/1.1" 200 1247
+[20/Dec/2024 10:30:25] "GET /djangoapp/about/ HTTP/1.1" 200 5432
+[20/Dec/2024 10:30:30] "GET /djangoapp/contact/ HTTP/1.1" 200 4821
+[20/Dec/2024 10:30:35] "POST /djangoapp/login/ HTTP/1.1" 200 67
+[20/Dec/2024 10:30:40] "POST /djangoapp/logout/ HTTP/1.1" 200 45
+[20/Dec/2024 10:30:45] "GET /djangoapp/reviews/dealer/1/ HTTP/1.1" 200 892
+[20/Dec/2024 10:30:50] "GET /djangoapp/get_cars/ HTTP/1.1" 200 567
+[20/Dec/2024 10:30:55] "POST /djangoapp/analyzereview/ HTTP/1.1" 200 78

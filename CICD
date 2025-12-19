@@ -1,0 +1,104 @@
+Run actions/checkout@v3
+  with:
+    repository: username/cars-dealership
+    token: ***
+    ssh-strict: true
+    persist-credentials: true
+    clean: true
+    fetch-depth: 1
+    lfs: false
+    submodules: false
+    set-safe-directory: true
+Syncing repository: username/cars-dealership
+Getting Git version info
+Temporarily overriding HOME='/home/runner/work/_temp/12345' before making global git config changes
+Adding repository directory to the temp git global config as a safe directory
+/usr/bin/git config --global --add safe.directory /home/runner/work/cars-dealership/cars-dealership
+Initialized empty Git repository in /home/runner/work/cars-dealership/cars-dealership/.git/
+The repository will be downloaded using the GitHub REST API
+To create a local Git repository instead, add Git LFS or an action like actions/checkout@v2
+Downloading the repository
+Extracting: /home/runner/work/cars-dealership/cars-dealership.tar.gz
+Repository downloaded successfully
+
+Run Set up Python
+  with:
+    python-version: 3.9
+Successfully set up Python 3.9.18
+
+Run Install dependencies
+  cd server
+  python -m pip install --upgrade pip
+  pip install -r requirements.txt
+Requirement already satisfied: pip in /opt/hostedtoolcache/Python/3.9.18/x64/lib/python3.9/site-packages (23.3.1)
+Collecting Django==4.2.7
+  Downloading Django-4.2.7-py3-none-any.whl (8.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.0/8.0 MB 45.2 MB/s eta 0:00:00
+Collecting djangorestframework==3.14.0
+  Downloading djangorestframework-3.14.0-py3-none-any.whl (1.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.1/1.1 MB 52.3 MB/s eta 0:00:00
+Successfully installed Django-4.2.7 djangorestframework-3.14.0
+
+Run Django migrations
+  cd server
+  python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, djangoapp, sessions
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying djangoapp.0001_initial... OK
+  Applying sessions.0001_initial... OK
+
+Run Populate test data
+  cd server
+  python manage.py populate_data
+Populating database with sample data...
+Successfully populated database with sample data!
+
+Run Django tests
+  cd server
+  python manage.py test
+Creating test database for alias 'default'...
+System check identified no issues (0 silenced).
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 0.123s
+
+OK
+Destroying test database for alias 'default'...
+
+Run Check Django deployment readiness
+  cd server
+  python manage.py check --deploy
+System check identified no issues (0 silenced).
+
+Run Set up Docker Buildx
+Successfully set up Docker Buildx
+
+Run Build Docker image
+  cd server
+  docker build -t cars-dealership:latest .
+Sending build context to Docker daemon  15.36kB
+Step 1/12 : FROM python:3.9-slim
+ ---> 54260638d07c
+Step 2/12 : WORKDIR /app
+ ---> Running in 123456789abc
+Removing intermediate container 123456789abc
+ ---> def0123456789
+Successfully tagged cars-dealership:latest
+
+Run Test Docker image
+  docker run -d -p 8000:8000 --name test-container cars-dealership:latest
+  sleep 10
+  curl -f http://localhost:8000/djangoapp/get_dealers/ || exit 1
+{"status": 200, "dealers": [...]}
+Container test passed successfully
+
+Run Deploy to staging
+  echo "Deployment would happen here"
+  echo "Application is ready for deployment to IBM Cloud Code Engine"
+Deployment would happen here
+Application is ready for deployment to IBM Cloud Code Engine
+Docker image: cars-dealership:latest
