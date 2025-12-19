@@ -1,0 +1,1 @@
+web: cd server && python manage.py migrate && python manage.py populate_data && gunicorn djangoproj.wsgi --bind 0.0.0.0:$PORT
